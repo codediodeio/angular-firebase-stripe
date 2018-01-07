@@ -1,0 +1,32 @@
+<h2>Stripe Dashboard</h2>
+
+<p>This page demonstrates how to retrieve data from Stripe. </p>
+
+<h3>Charge History</h3>
+<p><em>Retrieves the <a href="https://stripe.com/docs/api#charges">customer charge history</a> from Stripe.</em></p>
+
+<p>Component Usage: <code>&lt;user-charges&gt;&lt;/user-charges&gt;</code></p>
+
+<div class="card card-content">
+    <user-charges></user-charges>
+</div>
+
+<h3>Payment Sources</h3>
+<p><em>Retrieves the <a href="https://stripe.com/docs/api#sources">customer payment sources</a> from Stripe.</em></p>
+
+<p>Component Usage: <code>&lt;user-sources [canSelect]=&quot;true&quot;&gt;&lt;/user-sources&gt;</code></p>
+
+<p>When <code>canSelect == true</code>, the component will display a button for each source and emit <code>selectedSource</code> event - this is useful for sharing data between components.</p>
+
+
+<div class="card card-content">
+    <user-sources [canSelect]="false"></user-sources>
+</div>
+
+<h3>Subscriptions</h3>
+
+<p><em>Retrieves the <a href="https://stripe.com/docs/api#customers">customer</a> subscriptions from stripe. </em></p>
+
+<div class="card card-content">
+    <user-subscriptions></user-subscriptions>
+</div>

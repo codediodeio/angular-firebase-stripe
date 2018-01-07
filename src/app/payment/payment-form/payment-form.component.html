@@ -1,0 +1,66 @@
+<fieldset>
+
+    <form #paymentForm="ngForm" (ngSubmit)="formHandler()" class="checkout">
+        <div class="form-row">
+        <label for="card-info">Pay with Credit or Debit Card</label>
+
+        <div id="card-element" #cardElement></div>
+        <div id="card-errors" class="help is-danger" role="alert" *ngIf="formError">{{ formError }}</div>
+        </div>
+
+        <div *ngIf="totalAmount; then pay else save;">
+            <!-- ng-template appears here -->
+        </div>
+    </form>
+
+</fieldset>
+ 
+<!-- Template when Charging Card -->
+
+<ng-template #pay>
+    
+    <button type="submit" 
+            class="button is-info" 
+            [disabled]="!formComplete || loading"
+            [class.is-loading]="loading">
+
+        Pay {{ totalAmount | stripe | currency }}
+
+    </button>
+
+    <div *ngIf="result?.id" class="notification is-success">
+        {{ result.id }} has a status of {{ result.status }} for {{ result.amount | stripe | currency }}
+    </div>  
+    
+    <!-- If error, show the user the raw error msg from Stripe -->
+    <div *ngIf="result?.error" class="notification is-danger">
+        {{ result.error?.message }}
+    </div>  
+
+</ng-template>
+
+
+
+<!-- Template when Saving Card for Later Use -->
+
+<ng-template #save>
+    <button type="submit" 
+        class="button is-info" 
+        [disabled]="!formComplete || loading"
+        [class.is-loading]="loading">
+
+        Save Card
+
+    </button>
+
+    <div *ngIf="result?.id" class="notification is-success">
+        Attached payment source {{ result.id }} -- {{ result.card.brand }} ending in {{ result.card.last4 }}
+    </div>  
+    
+    <!-- If error, show the user the raw error msg from Stripe -->
+    <div *ngIf="result?.error" class="notification is-danger">
+        {{ result.error?.message }}
+    </div>  
+
+</ng-template>
+

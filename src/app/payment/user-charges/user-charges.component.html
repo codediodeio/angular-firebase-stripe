@@ -1,0 +1,22 @@
+<div *ngIf="charges$ | async as charges; else loading;">
+  <div *ngIf="charges.length">
+
+    <ul *ngFor="let charge of charges">
+      <li>
+          {{ charge.id }} --
+          {{ charge.amount | stripe | currency }} -- 
+          Status: {{ charge.status }}
+      </li>
+    </ul>
+  
+  </div>
+
+
+  <div *ngIf="!charges.length">No charges found on this stripe customer account</div>
+  
+</div>
+
+
+<ng-template #loading>
+    <loading-spinner [text]="'loading charges...'"></loading-spinner>
+</ng-template>

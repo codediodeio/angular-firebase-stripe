@@ -1,0 +1,13 @@
+<h2>Save Card</h2>
+<p>Component Usage: <code>&lt;payment-form [totalAmount]=&quot;0&quot;&gt;&lt;/payment-form&gt;</code></p>
+<p>Setting totalAmount to 0 tells the component to only save the card.</p>
+<p>Emits a <code>stripeResult</code> event when the operation completes.</p>
+<hr>
+<p><em>Attaches a Stripe payment source to the customer to be charged later by sending a POST request to the <code>app/sources</code> cloud function endpoint.</em></p>
+<hr>
+<p>Give it a try with a fake card <strong>4242424242424242</strong> or test errors with <strong>4000000000000119</strong></p>
+
+<hr>
+
+
+<payment-form [totalAmount]="0"></payment-form>

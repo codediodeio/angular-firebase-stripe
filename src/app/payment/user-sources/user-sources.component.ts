@@ -1,0 +1,28 @@
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { PaymentService } from '../payment.service';
+import { Source, Customer } from '../models';
+
+@Component({
+  selector: 'user-sources',
+  templateUrl: './user-sources.component.html',
+  styleUrls: ['./user-sources.component.sass']
+})
+export class UserSourcesComponent implements OnInit {
+
+  user$: Observable<Customer>;
+
+  @Input()  canSelect: boolean;
+  @Output() selectedSource = new EventEmitter<Source>();
+
+  constructor(private pmt: PaymentService) { }
+
+  ngOnInit() {
+    this.user$ = this.pmt.getCustomer()
+  }
+
+  clickHandler(source: Source) {
+    this.selectedSource.emit(source)
+  }
+
+}

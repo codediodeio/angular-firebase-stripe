@@ -1,0 +1,27 @@
+<h1>Stripe Connect</h1>
+
+<p>
+    Make payments and manage money on behalf of your cusomers by authenticating them with their personal Stripe account - think Shopify, Uber, Kickstarter, etc. 
+</p>
+
+<p>The Connect button will associate a Stripe account with Firebase by minting a custom auth token.</p>
+
+<hr>
+
+<div *ngIf="(auth.user | async)?.accountId; else connect;">
+
+    <div class="notification is-success">You have succesfully connected Stripe with Firebase.</div>
+
+    <h3>User Data</h3>
+
+    {{ auth.user | async | json }}
+</div>
+
+<ng-template #connect>
+
+    <button (click)="auth.stripeLogin()"  class="button is-link">
+        <i class="fa fa-cc-stripe fa-lg"></i> Stripe Connect
+    </button>
+
+</ng-template>
+

@@ -1,0 +1,41 @@
+<div *ngIf="subscriptions$ | async as subscriptions; else loading;">
+  
+
+  <ul *ngFor="let sub of subscriptions">
+  
+    
+    <li>
+
+      {{ sub.title }} {{ sub.id }} -- Status: {{ sub.status }}
+      
+      <!-- {{ sub.data?.plan?.id }} | Current Status: {{ sub.status }} -->
+      
+      <!-- <button class="button is-primary is-small" 
+              *ngIf="sub.status === 'canceled'"
+              (click)="pmt.resumeSubscription(sub.data?.plan?.id)">
+              
+        Reactivate
+      
+      </button>
+      
+      
+      <button class="button is-danger is-small" 
+              *ngIf="sub.status === 'active'"
+              (click)="pmt.cancelSubscription(sub.data?.plan?.id)">
+              
+        Cancel
+      
+      </button> -->
+
+    </li>
+
+
+  </ul>
+
+  <div *ngIf="!subscriptions.length">You do not have any subscriptions</div>
+
+</div>
+
+<ng-template #loading>
+  <loading-spinner [text]="'Loading subscriptions...'"></loading-spinner>
+</ng-template>

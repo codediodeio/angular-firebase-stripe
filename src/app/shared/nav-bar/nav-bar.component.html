@@ -1,0 +1,24 @@
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" routerLink="/">
+        <img src="https://angularfirebase.com/images/logo.png" width="32" height="32">
+      </a>
+
+      <button class="button navbar-burger" [class.is-active]="isActive" (click)="toggleActive()">
+          <span></span>
+          <span></span>
+          <span></span>
+      </button>
+    </div>
+    <div class="navbar-menu" [class.is-active]="isActive" (click)="setActive(false)">
+      <a routerLink="/" class="navbar-item">Readme</a> 
+      <a routerLink="dashboard" class="navbar-item">Dashboard</a> 
+      <a routerLink="charge" class="navbar-item">Charge</a> 
+      <a routerLink="save-card" class="navbar-item">Save Card</a> 
+      <a routerLink="subscription" class="navbar-item">Subscriptions</a> 
+      <a routerLink="connect" class="navbar-item">Stripe Connect</a> 
+    </div>
+
+  </nav>
+    

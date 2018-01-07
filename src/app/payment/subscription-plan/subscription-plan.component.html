@@ -1,0 +1,23 @@
+<div *ngIf="subscriptions$ | async as subscriptions">
+
+  <div [ngSwitch]="subscriptions[planId]">
+    <div *ngSwitchCase="'active'">
+        <p>You are subscribed to this plan</p>
+        <button [class.is-loading]="loading" class="button is-danger" (click)="cancelHandler()">Cancel Plan?</button>
+    </div>
+
+    <!-- <div *ngSwitchCase="'pastDue'">
+        possibility to add advanced switch cases
+    </div>
+
+    <div *ngSwitchCase="'trialing'">
+            possibility to add advanced switch cases
+    </div> -->
+
+    <div *ngSwitchDefault>
+        <button *ngIf="sourceId"  [class.is-loading]="loading" class="button is-success" (click)="createHandler()">Activate Plan</button>
+        <button *ngIf="!sourceId" class="button is-default" disabled>Select a Payment Source</button>
+    </div>
+  </div>
+  
+</div>

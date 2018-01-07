@@ -1,0 +1,20 @@
+<div *ngIf="(user$ | async)?.sources.data as sources; else loading;">
+    <div *ngIf="sources.length">
+      <ul *ngFor="let source of sources">
+
+        <li>
+            {{ source.id }} -- Card {{ source.card.brand }} ending in {{ source.card.last4 }} 
+            <button *ngIf="canSelect" (click)="clickHandler(source)" class="button is-info is-small">Select</button>
+        </li>
+
+      </ul>
+    </div>
+
+    <div *ngIf="!sources.length">No payment sources found on this stripe customer account</div>
+</div>
+
+
+    
+<ng-template #loading>
+  <i class="fa fa-refresh fa-spin"></i> Loading payment sources...
+</ng-template>

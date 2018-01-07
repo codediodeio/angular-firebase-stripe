@@ -1,0 +1,41 @@
+
+<div *ngIf="auth.user | async; then authenticated else guest" class="profile">
+  <!-- template will replace this div -->
+</div>
+
+
+<!-- User NOT logged in -->
+<ng-template #guest>
+  <h3>Howdy, GUEST</h3>
+  <p>Login to get started...</p>
+
+  <button (click)="auth.googleLogin()"  class="button is-danger">
+    <i class="fa fa-google"></i> Sign-in with Google
+  </button>
+
+  <button (click)="auth.anonymousLogin()"  class="button">
+      <i class="fa fa-user-secret"></i> Sign-in with Anonymously
+  </button>
+
+</ng-template>
+
+
+<!-- User logged in -->
+<ng-template #authenticated>
+  <div *ngIf="auth.user | async as user">
+    <h3>Howdy, {{ user.displayName }}</h3>
+    <img  [src]="user.photoURL">
+    <p class="firebase-text">Firebase UID: {{ user.uid }}</p>
+    <p class="stripe-text">Stripe ID: {{ user?.stripeCustomerId || 'provisioning' }} </p>
+
+    <hr>
+    
+    <div *ngIf="user.subscriptions">
+      <h5>Active Subscriptions</h5>
+      {{ user.subscriptions | json }}
+      <hr>
+    </div>
+
+    <button (click)="auth.signOut()" class="button">Logout</button>
+  </div>
+</ng-template>
