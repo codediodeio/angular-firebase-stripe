@@ -134,16 +134,24 @@ export async function cancelSubscription(userId: string, planId: string): Promis
 
     const subscription   = await getSubscription(userId, planId);
 
-    const cancellation   = await stripe.subscriptions.del(subscription.id);
+    let cancellation; 
+
+    // Possible cancellation already occured in Stripe
+    if (subscription) {
+        cancellation  = await stripe.subscriptions.del(subscription.id);
+    }
 
     const subscriptions = { 
         [planId]: 'cancelled'
     };
 
     await db.doc(`users/${userId}`).set({ subscriptions }, { merge: true });
-    
+
     return cancellation;
+
 }
+
+// recurringPayment is called by a Stripe webhook
 
 export async function recurringPayment(customerId: string, planId: string, hook: string): Promise<any> {
 

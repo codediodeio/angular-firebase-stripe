@@ -1,14 +1,6 @@
 <h2>Subscriptions</h2>
 
-<p>Create and manage recurring subscriptions.</p>
-
-<p>Component Usage: <code>&lt;subscription-plan [planId]=&quot;'silver-plan'&quot; [sourceId]=&quot;sourceId&quot;&gt;&lt;/subscription-plan&gt;</code></p>
-
-<p>Pass the subscription plan a stripe source ID and plan ID. It will create the subscription and attach it to the customer and update the Firestore user profile.</p>
-
-<hr>
-
-<p>Give it a try with a fake card <strong>4242424242424242</strong></p>
+<p>Create and manage recurring subscriptions. <strong>4242424242424242</strong></p>
 
 <hr>
 
@@ -17,7 +9,7 @@
 
 <payment-form [totalAmount]="0" (stripeResult)="setSource($event)"></payment-form>
 
-<h5>Or choose an existing payment source</h5>
+<h4>Or choose an existing payment source</h4>
 
 <user-sources [canSelect]="true" (selectedSource)="setSource($event)"></user-sources>
 
@@ -45,3 +37,12 @@
     <subscription-plan [planId]="'silver-plan'" [sourceId]="sourceId"></subscription-plan>
   </div>
 </div>
+
+<hr>
+
+
+<p>Component Usage: <code>&lt;subscription-plan [planId]=&quot;'silver-plan'&quot; [sourceId]=&quot;sourceId&quot;&gt;&lt;/subscription-plan&gt;</code></p>
+
+<p>Pass the subscription plan a stripe source ID and plan ID. It will create the subscription and attach it to the customer and update the Firestore user profile.</p>
+
+<hr>

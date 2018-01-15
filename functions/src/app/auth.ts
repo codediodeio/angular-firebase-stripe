@@ -7,7 +7,7 @@ export const createStripeCustomer = functions.auth
     .user().onCreate(event => {
 
         const user = event.data;
-        const userRef = db.collection('users').doc(user.uid)
+        const userRef = db.collection('users').doc(user.uid);
         
         return createCustomer(user)
 

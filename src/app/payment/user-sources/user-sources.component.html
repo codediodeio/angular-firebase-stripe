@@ -1,4 +1,4 @@
-<div *ngIf="(user$ | async)?.sources.data as sources; else loading;">
+<div *ngIf="(customer$ | async)?.sources.data as sources; else loading;">
     <div *ngIf="sources.length">
       <ul *ngFor="let source of sources">
 

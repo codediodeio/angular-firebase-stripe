@@ -10,7 +10,7 @@ import { Source, Customer } from '../models';
 })
 export class UserSourcesComponent implements OnInit {
 
-  user$: Observable<Customer>;
+  customer$: Observable<Customer>;
 
   @Input()  canSelect: boolean;
   @Output() selectedSource = new EventEmitter<Source>();
@@ -18,7 +18,7 @@ export class UserSourcesComponent implements OnInit {
   constructor(private pmt: PaymentService) { }
 
   ngOnInit() {
-    this.user$ = this.pmt.getCustomer()
+    this.customer$ = this.pmt.getCustomer()
   }
 
   clickHandler(source: Source) {

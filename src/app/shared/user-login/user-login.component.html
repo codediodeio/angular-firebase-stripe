@@ -10,11 +10,11 @@
   <p>Login to get started...</p>
 
   <button (click)="auth.googleLogin()"  class="button is-danger">
-    <i class="fa fa-google"></i> Sign-in with Google
+    <i class="fa fa-google"></i> Login with Google
   </button>
 
   <button (click)="auth.anonymousLogin()"  class="button">
-      <i class="fa fa-user-secret"></i> Sign-in with Anonymously
+      <i class="fa fa-user-secret"></i> Login Anonymously
   </button>
 
 </ng-template>
@@ -24,7 +24,7 @@
 <ng-template #authenticated>
   <div *ngIf="auth.user | async as user">
     <h3>Howdy, {{ user.displayName }}</h3>
-    <img  [src]="user.photoURL">
+    <img  [src]="user.photoURL || 'https://goo.gl/knVFYJ'">
     <p class="firebase-text">Firebase UID: {{ user.uid }}</p>
     <p class="stripe-text">Stripe ID: {{ user?.stripeCustomerId || 'provisioning' }} </p>
 
