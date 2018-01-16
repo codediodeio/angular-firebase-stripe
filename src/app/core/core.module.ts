@@ -6,11 +6,15 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
-/// DELETE firebaseConfig
-/// Add your own firebase config to environment.ts
-/// Then use it to initialize angularfire2 AngularFireModule.initializeApp(environment.firebaseConfig),
-// import { environment } from '../../environments/environment';
-import { firebaseConfig } from '../../env';
+
+// Firebase setup instructions
+
+// 1. delete this line, then...
+import { firebaseConfig } from '../../env'; 
+
+// 2. Add your own firebase config to environment.ts
+// 3. Then use it to initialize angularfire2 below, like so AngularFireModule.initializeApp(environment.firebaseConfig),
+
 
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard'; 
