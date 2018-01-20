@@ -1,4 +1,4 @@
-import * as config from './app/config';
+require('./app/config');
 import * as auth from './app/auth';
 import * as webhooks from './app/webhooks';
 import * as connect from './app/connect';
