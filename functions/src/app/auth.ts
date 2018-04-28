@@ -4,9 +4,8 @@ import { createCustomer } from './helpers';
 
 export const createStripeCustomer = functions.auth
 
-    .user().onCreate(event => {
+    .user().onCreate((user, context) => {
 
-        const user = event.data;
         const userRef = db.collection('users').doc(user.uid);
         
         return createCustomer(user)
