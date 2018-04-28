@@ -13,27 +13,27 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^5.2.0",
-    "@angular/common": "^5.2.0",
-    "@angular/compiler": "^5.2.0",
-    "@angular/core": "^5.2.0",
-    "@angular/forms": "^5.2.0",
-    "@angular/http": "^5.2.0",
-    "@angular/platform-browser": "^5.2.0",
-    "@angular/platform-browser-dynamic": "^5.2.0",
-    "@angular/platform-server": "^5.2.0",
-    "@angular/router": "^5.2.0",
-    "@angular/service-worker": "^5.2.0",
+    "@angular/animations": "5.2.10",
+    "@angular/common": "5.2.10",
+    "@angular/compiler": "5.2.10",
+    "@angular/core": "5.2.10",
+    "@angular/forms": "5.2.10",
+    "@angular/http": "5.2.10",
+    "@angular/platform-browser": "5.2.10",
+    "@angular/platform-browser-dynamic": "5.2.10",
+    "@angular/platform-server": "5.2.10",
+    "@angular/router": "5.2.10",
+    "@angular/service-worker": "5.2.10",
     "angularfire2": "^5.0.0-rc.4",
     "core-js": "^2.4.1",
     "firebase": "4.8.0",
-    "rxjs": "^5.5.2",
-    "zone.js": "^0.8.14"
+    "rxjs": "^5.5.10",
+    "zone.js": "^0.8.26"
   },
   "devDependencies": {
-    "@angular/cli": "^1.6.0",
-    "@angular/compiler-cli": "^5.2.0",
-    "@angular/language-service": "^4.4.6",
+    "@angular/cli": "1.7.4",
+    "@angular/compiler-cli": "5.2.10",
+    "@angular/language-service": "5.2.10",
     "@types/jasmine": "~2.5.53",
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",
@@ -49,6 +49,6 @@
     "protractor": "~5.1.2",
     "ts-node": "~3.2.0",
     "tslint": "~5.7.0",
-    "typescript": "^2.4.2"
+    "typescript": "2.6.2"
   }
 }
