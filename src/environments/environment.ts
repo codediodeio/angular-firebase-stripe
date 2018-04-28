@@ -15,7 +15,10 @@ export const environment = {
     messagingSenderId: '<project>'
   },
 
-  functionsURL: 'https://us-central1-stripe-elements.cloudfunctions.net',
+  // http://localhost:5000
+  functionsURL: ' http://localhost:5000/stripe-elements/us-central1',
+  // functionsURL: 'https://us-central1-stripe-elements.cloudfunctions.net',
+  
   stripePublishable: 'pk_test_m3a5moXVKgThpdfwzKILvnbG'
 
 };
