@@ -17,3 +17,20 @@ There is curretly bug preventing the CLI from reading Env vars in Node. As a wor
     "clientid": "baz"
 }
 ```
+
+## Common Error on Windows
+
+**Running command: npm --prefix "$RESOURCE_DIR" run lint**
+
+If you see this error, change your predeploy scripts in your `firebase.json` to:
+
+```json
+{
+  "functions": {
+    "predeploy": [
+      "npm --prefix ./functions/ run lint",
+      "npm --prefix ./functions/ run build"
+    ]
+  }
+}
+```
