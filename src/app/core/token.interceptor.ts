@@ -7,7 +7,7 @@ import {
 } from '@angular/common/http';
 
 import { AuthService } from './auth.service';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
 import * as firebase from 'firebase/app';
