@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PaymentService } from '../payment.service';
 import { switchMap, tap, map } from 'rxjs/operators';
 import { AuthService } from '../../core/auth.service';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { SubscriptionPlan } from '../models';
 
 @Component({

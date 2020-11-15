@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { switchMap, map } from 'rxjs/operators';
-import { fromPromise } from 'rxjs/observable/fromPromise';
-import { Observable } from 'rxjs/Observable';
+import { from as fromPromise ,  Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 import { Customer, Source, Charge, SubscriptionPlan, StripeObject } from './models';

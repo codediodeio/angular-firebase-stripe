@@ -1,15 +1,14 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
-import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
-
-import { Observable } from 'rxjs/Observable';
+import { from as fromPromise, Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { fromPromise } from 'rxjs/observable/fromPromise';
-
+import { environment } from '../../environments/environment';
 import { User } from './user';
+
+
 
 @Injectable()
 export class AuthService {
@@ -74,7 +73,7 @@ export class AuthService {
     return fromPromise ( this.afAuth.auth.currentUser.getIdToken() );
   }
 
-  
+
   ///// STRIPE CONNECT //////
 
 
@@ -82,7 +81,7 @@ export class AuthService {
   stripeLogin() {
     const popup = window.open(`${environment.functionsURL}/stripeRedirect`, '_blank', 'height=700,width=800')
   }
-  // Signin with a custom token from 
+  // Signin with a custom token from
   customSignIn(token) {
     return this.afAuth.auth.signInWithCustomToken(token).then(() => window.close())
   }

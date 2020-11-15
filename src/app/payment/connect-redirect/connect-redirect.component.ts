@@ -4,7 +4,7 @@ import { AuthService } from '../../core/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
-import { fromPromise } from 'rxjs/observable/fromPromise';
+import { from as fromPromise } from 'rxjs';
 
 @Component({
   selector: 'connect-redirect',
